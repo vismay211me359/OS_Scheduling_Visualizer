@@ -1,0 +1,1 @@
+export const largestJobFirstInfo="🖥️ Largest Job First (LJF): Executes longest tasks first, beneficial for systems with fewer tasks but may cause high waiting times for shorter tasks."

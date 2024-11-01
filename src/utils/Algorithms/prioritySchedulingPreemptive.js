@@ -1,0 +1,1 @@
+export const prioritySchedulingPreemptiveInfo="🖥️ Preemptive Priority: Allows high-priority tasks to interrupt lower-priority ones, ideal for time-sensitive systems."

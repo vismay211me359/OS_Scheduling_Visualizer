@@ -1,0 +1,1 @@
+export const firstComeFirstServeInfo="🖥️ First Come First Serve (FCFS): Processes are scheduled in the order of arrival, ensuring simplicity but sometimes causing a 'convoy effect."

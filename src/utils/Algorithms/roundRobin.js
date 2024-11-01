@@ -1,0 +1,1 @@
+export const roundRobinInfo="🖥️ Round Robin: Cycles through processes with equal time quanta, providing fair CPU time and balancing response across all processes."

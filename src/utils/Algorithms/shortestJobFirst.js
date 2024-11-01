@@ -1,0 +1,1 @@
+export const shortestJobFirstInfo="🖥️ Shortest Job First (SJF): Prioritizes the shortest tasks first, reducing waiting time for shorter processes."

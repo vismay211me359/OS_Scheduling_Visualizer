@@ -1,0 +1,1 @@
+export const largestJobFirstPreemtiveInfo="🖥️ Preemptive LJF: Like LJF but allows larger tasks to preempt shorter ones, maximizing CPU use for compute-heavy tasks."

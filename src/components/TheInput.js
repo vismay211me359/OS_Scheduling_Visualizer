@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
-import { processes, timeQuantum, algorithmInputOptions } from '../utils/theVariables';
+import {algorithmInputOptions } from '../utils/theVariables';
 import { FaPlus } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import AddModal from './AddModal';
+import { setVisualization } from '../context/VisualizationSlice';
 
-const TheInput = () => {
-    const [processList, setProcessList] = useState(processes);
-    const [timeQuanta, setTimeQuanta] = useState(timeQuantum);
+const TheInput = ({processList,setProcessList,timeQuanta,setTimeQuanta}) => {
     const theAlgorithm = useSelector((state) => state.algorithm.algorithm);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalObject, setModalObject] = useState({});
     const [addButtonDisabled,setAddButtonDisabled]=useState(false);
+    const dispatch=useDispatch();
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
@@ -83,7 +83,7 @@ const TheInput = () => {
     }
 
     const addProcess = (newProcess) => {
-        if(processList.length===19){
+        if(processList.length===20){
             setAddButtonDisabled(true);
         }
         setProcessList([
@@ -108,7 +108,7 @@ const TheInput = () => {
 
     const theAddProcessHandler = (e) => {
         if(addButtonDisabled){
-            toast.warn("Maximum 20 process allowed",{ autoClose: 3000 });
+            toast.warn("Maximum 21 process allowed",{ autoClose: 3000 });
             return;
         }
         openModal();
@@ -139,12 +139,17 @@ const TheInput = () => {
         openModal();
     }
 
+    const visualizeHandler=(e)=>{
+        e.preventDefault();
+        dispatch(setVisualization(true));
+    }
+
     return (
         <div className='bg-black flex flex-col w-full max-w-6xl p-4 mx-auto'>
             <div className='flex flex-wrap gap-4 mb-8 justify-center'>
-                <button onClick={theAddProcessHandler} className={`text-black font-semibold px-4 py-2 rounded-md hover:scale-110 transition-all ease-in-out duration-300 ${processList.length===20 ? "bg-gray-600" : "bg-custom-gold hover:bg-custom-goldHover"}`}><div className='flex justify-center items-center'><FaPlus /> Add Process</div></button>
+                <button onClick={theAddProcessHandler} className={`text-black font-semibold px-4 py-2 rounded-md hover:scale-110 transition-all ease-in-out duration-300 ${processList.length===21 ? "bg-gray-600" : "bg-custom-gold hover:bg-custom-goldHover"}`}><div className='flex justify-center items-center'><FaPlus /> Add Process</div></button>
                 <button onClick={handleMultipleDelete} className="bg-custom-gold text-black font-semibold px-4 py-2 rounded-md hover:bg-custom-goldHover hover:scale-110 transition-all ease-in-out duration-300 disabled:cursor-not-allowed disabled:bg-gray-600" disabled={(processList.length===0)}><div className='flex justify-center items-center'><MdDelete /> Remove Processes</div></button>
-                <button className="bg-custom-gold text-black font-semibold px-4 py-2 rounded-md hover:bg-custom-goldHover hover:scale-110 transition-all ease-in-out duration-300 disabled:cursor-not-allowed disabled:bg-gray-600" disabled={(processList.length===0)}><div className='flex justify-center items-center'><FaEye /> Visualize</div></button>
+                <button className="bg-custom-gold text-black font-semibold px-4 py-2 rounded-md hover:bg-custom-goldHover hover:scale-110 transition-all ease-in-out duration-300 disabled:cursor-not-allowed disabled:bg-gray-600" disabled={(processList.length===0)}><div className='flex justify-center items-center' onClick={visualizeHandler}><FaEye /> Visualize</div></button>
             </div>
             {algorithmInputOptions[theAlgorithm].timeQuantum && <div className="bg-gray-800 p-6 rounded-lg shadow-lg  text-center my-4 ">
                 <label htmlFor="timeQuantum" className="block text-custom-gold text-lg font-semibold mb-2">

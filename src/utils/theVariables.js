@@ -1,7 +1,7 @@
 import { evaluateAllInfo } from "./Algorithms/evaluateAll";
 import { firstComeFirstServeInfo } from "./Algorithms/firstComeFirstServe";
 import { shortestJobFirstInfo } from "./Algorithms/shortestJobFirst";
-import { shortestJobFirstPreemptive } from "./Algorithms/shortestJobFirstPreemptive";
+import { shortestJobFirstPreemptiveInfo } from "./Algorithms/shortestJobFirstPreemptive";
 import { largestJobFirstInfo } from "./Algorithms/largestJobFirst";
 import { largestJobFirstPreemtiveInfo } from "./Algorithms/largestJobFirstPreemptive";
 import { prioritySchedulingInfo } from "./Algorithms/priorityScheduling";
@@ -35,7 +35,7 @@ export const algorithmInputOptions={
 export const algorithmsInfo={
     1:firstComeFirstServeInfo,
     2:shortestJobFirstInfo,
-    3:shortestJobFirstPreemptive,
+    3:shortestJobFirstPreemptiveInfo,
     4:largestJobFirstInfo,
     5:largestJobFirstPreemtiveInfo,
     6:prioritySchedulingInfo,
@@ -50,6 +50,7 @@ export const processes = [{
     arrivalTime: 0,
     priority: 1,
     isSelected:false,
+    initialBurst:80
 },
 {
     id: 2,
@@ -57,6 +58,7 @@ export const processes = [{
     arrivalTime: 20,
     priority: 2,
     isSelected:false,
+    initialBurst:60
 },
 {
     id: 3,
@@ -64,6 +66,7 @@ export const processes = [{
     arrivalTime: 40,
     priority: 3,
     isSelected:false,
+    initialBurst:65
 },
 {
     id: 4,
@@ -71,6 +74,7 @@ export const processes = [{
     arrivalTime: 60,
     priority: 4,
     isSelected:false,
+    initialBurst:120
 },
 {
     id: 5,
@@ -78,6 +82,7 @@ export const processes = [{
     arrivalTime: 80,
     priority: 5,
     isSelected:false,
+    initialBurst:30
 },
 {
     id: 6,
@@ -85,6 +90,7 @@ export const processes = [{
     arrivalTime: 90,
     priority: 6,
     isSelected:false,
+    initialBurst:90
 },
 {
     id: 7,
@@ -92,6 +98,7 @@ export const processes = [{
     arrivalTime: 120,
     priority: 7,
     isSelected:false,
+    initialBurst:25
 },
 {
     id: 8,
@@ -99,6 +106,7 @@ export const processes = [{
     arrivalTime: 240,
     priority: 8,
     isSelected:false,
+    initialBurst:40
 },
 {
     id: 9,
@@ -106,6 +114,7 @@ export const processes = [{
     arrivalTime: 260,
     priority: 9,
     isSelected:false,
+    initialBurst:90
 },
 {
     id: 10,
@@ -113,6 +122,7 @@ export const processes = [{
     arrivalTime: 380,
     priority: 10,
     isSelected:false,
+    initialBurst:75
 }
 ];
 

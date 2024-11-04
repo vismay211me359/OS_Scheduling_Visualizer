@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ReadyQueue from './ReadyQueue';
 
-const SJFPreemptiveScheduler = ({ processes, setCompletedProcesses, setGanttChartProcesses }) => {
+const PriorityPreemtiveSchedular = ({ processes, setCompletedProcesses, setGanttChartProcesses }) => {
     const [readyQueue, setReadyQueue] = useState([]);
     const [time, setTime] = useState(0);
 
@@ -20,10 +20,10 @@ const SJFPreemptiveScheduler = ({ processes, setCompletedProcesses, setGanttChar
             const newProcesses = processes.filter((p) => p.arrivalTime === time);
 
             setReadyQueue((prevQueue) => {
-                // let updatedQueue = [...prevQueue, ...newProcesses].sort((a, b) => a.burstTime - b.burstTime);
+                // let updatedQueue = [...prevQueue, ...newProcesses].sort((a, b) => a.priority - b.priority);
                 let updatedQueue = [...prevQueue, ...newProcesses].sort((a, b) => {
-                    if (a.burstTime !== b.burstTime) {
-                      return a.burstTime - b.burstTime;
+                    if (b.burstTime !== a.burstTime) {
+                      return a.priority - b.priority;
                     }
                     return a.arrivalTime - b.arrivalTime;
                 });
@@ -68,8 +68,6 @@ const SJFPreemptiveScheduler = ({ processes, setCompletedProcesses, setGanttChar
             setReadyQueue((prevQueue) => prevQueue.slice(1)); // Remove completed process
         }
     }, [readyQueue, setCompletedProcesses]);
-
-
     return (
         <>
             <ReadyQueue processes={processes} readyQueue={readyQueue} time={time} />
@@ -77,5 +75,4 @@ const SJFPreemptiveScheduler = ({ processes, setCompletedProcesses, setGanttChar
     )
 }
 
-export default SJFPreemptiveScheduler;
-
+export default PriorityPreemtiveSchedular

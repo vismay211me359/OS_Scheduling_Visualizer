@@ -41,7 +41,7 @@ export function largestJobFirst(processes) {
         });
 
         currentTime = currentTime + process.burstTime;
-        process = processes.filter(p => p.id !== process.id);
+        processes = processes.filter(p => p.id !== process.id);
     }
 
     const totalTime = answerArray[answerArray.length - 1].completionTime;

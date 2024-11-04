@@ -10,7 +10,7 @@ const gridSlice = createSlice({
     initialState,
     reducers: {
         setAlgorithm:(state,action)=>{
-            state.algorithm=action.payload;
+            state.algorithm=Number(action.payload);
         }
     },
 });

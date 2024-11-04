@@ -28,7 +28,12 @@ export function roundRobin(processes,timeQuantum){
     while(completedProcesses<n){
         // Add processes to the ready queue if they have arrived
         for (const process of answerArray) {
-            if (process.arrivalTime <= time && process.remainingTime > 0 && !readyQueue.includes(process)) {
+            if (process.arrivalTime <= time && process.remainingTime > 0 && !readyQueue.includes(process)  &&  (process.remainingTime===process.burstTime)) {
+                readyQueue.push(process);
+            }
+        }
+        for(const process of answerArray){
+            if(process.arrivalTime<=time && !readyQueue.includes(process)  && (process.remainingTime > 0)  && (process.remainingTime!==process.burstTime)){
                 readyQueue.push(process);
             }
         }
@@ -66,7 +71,7 @@ export function roundRobin(processes,timeQuantum){
             }
         }
 
-        answerArray[currentProcess.position].remainingTime--;
+        answerArray[currentProcess.position].remainingTime-=timeToExecute;
         time+=(timeToExecute);
         if(answerArray[currentProcess.position].remainingTime===0){
             completedProcesses++;
@@ -74,9 +79,9 @@ export function roundRobin(processes,timeQuantum){
             answerArray[currentProcess.position].turnaroundTime=answerArray[currentProcess.position].completionTime-answerArray[currentProcess.position].arrivalTime;
             answerArray[currentProcess.position].waitingTime= answerArray[currentProcess.position].turnaroundTime- answerArray[currentProcess.position].burstTime;
         }
-        else{
-            readyQueue.push(answerArray[currentProcess.position]);
-        }
+        // else{
+        //     readyQueue.push(answerArray[currentProcess.position]);
+        // }
     }
 
     const totalBurstTime=answerArray.reduce((sum,process)=>sum+process.burstTime,0);

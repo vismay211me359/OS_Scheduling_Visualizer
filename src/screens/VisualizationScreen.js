@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, {useEffect, useRef } from "react";
 import CompletedProcess from "../components/CompletedProcess";
 import SJFPreemptiveScheduler from "../components/SJFPreemptiveScheduler";
 import FCFSSchedular from "../components/FCFSSchedular";
@@ -9,13 +9,12 @@ import PrioritySchedular from "../components/PrioritySchedular";
 import SJFSchedular from "../components/SJFSchedular";
 import RoundRobinSchedular from "../components/RoundRobinSchedular";
 import GanttChart from "../components/GanttChart";
+import MovableButton from "../components/PropogationButton";
 
-const VisualizationScreen = ({ processes,timeQuantum,algorithm }) => {
+const VisualizationScreen = ({ processes,timeQuantum,algorithm,completedProcesses,setCompletedProcesses,ganttChartProcesses,setGanttChartProcesses }) => {
 
     const completedContainerRef = useRef(null);
     const ganttContainerRef = useRef(null);
-    const [completedProcesses, setCompletedProcesses] = useState([]);
-    const [ganttChartProcesses, setGanttChartProcesses] = useState([]);
     useEffect(() => {
         if (completedContainerRef.current) {
             completedContainerRef.current.scrollTop = completedContainerRef.current.scrollHeight;
@@ -53,6 +52,7 @@ const VisualizationScreen = ({ processes,timeQuantum,algorithm }) => {
                     <GanttChart processes={ganttChartProcesses} />
                 </div>
             </div>
+            <MovableButton/>
         </div>
     );
 };

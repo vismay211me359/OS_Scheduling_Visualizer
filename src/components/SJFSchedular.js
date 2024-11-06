@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import ReadyQueue from './ReadyQueue';
+import { useSelector,useDispatch } from 'react-redux';
+import { setVisualization } from '../context/VisualizationSlice';
+import { setShowResults } from '../context/VisualizationSlice';
 
 const SJFSchedular = ({ processes, setCompletedProcesses, setGanttChartProcesses }) => {
   const [readyQueue, setReadyQueue] = useState([]);
   const [time, setTime] = useState(0);
+  const speed=useSelector((state)=>state.algorithm.speed);
+  const dispatch=useDispatch();
 
   const updateGanttChart = (process, endTime) => {
     setGanttChartProcesses((prevGanttChart) => {
@@ -72,8 +77,12 @@ const SJFSchedular = ({ processes, setCompletedProcesses, setGanttChartProcesses
       // Stop interval if no more processes are incoming and queue is empty
       if (readyQueue.length === 0 && time >= Math.max(...processes.map((p) => p.arrivalTime))) {
         clearInterval(interval);
+        setTimeout(()=>{
+          dispatch(setVisualization(false));
+          dispatch(setShowResults(true));
+        },2000)
       }
-    }, 1000);
+    }, speed);
     return () => clearInterval(interval);
   }, [time, readyQueue, processes])
 

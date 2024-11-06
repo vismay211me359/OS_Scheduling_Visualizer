@@ -20,6 +20,18 @@ export const algorithmsOptions = [
     { label: 'Evaluate All', value: 20 },
 ]
 
+export const algorithmHeadings = {
+    1: "First Come, First Serve (FCFS) Scheduling - Process Execution Order",
+    2: "Shortest Job First (SJF) Scheduling - Optimizing Turnaround Time",
+    3: "Shortest Job First (SJF) Scheduling - Preemptive Process Optimization",
+    4: "Largest Job First (LJF) Scheduling - Maximizing Task Completion",
+    5: "Largest Job First (LJF) Scheduling - Preemptive Task Maximization",
+    6: "Priority Scheduling - Non-Preemptive Task Prioritization",
+    7: "Priority Scheduling - Preemptive Task Prioritization",
+    8: "Round Robin (RR) Scheduling - Fair Time Allocation",
+    20: "Evaluate All - Comparative Analysis of Scheduling Algorithms"
+};
+
 export const algorithmInputOptions={
     1:{burstTime:true,arrivalTime:true,priority:false,timeQuantum:false},
     2:{burstTime:true,arrivalTime:true,priority:false,timeQuantum:false},

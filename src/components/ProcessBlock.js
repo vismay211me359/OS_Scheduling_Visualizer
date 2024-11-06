@@ -26,7 +26,7 @@ const ProcessBlock = ({
 
     return (
         <div
-            className="w-full border bg-gray-900 border-gray-600 p-2 rounded-lg shadow-md flex flex-col gap-2 text-white"
+            className="w-full border bg-gray-900 border-gray-600 p-2 rounded-lg shadow-md flex flex-col gap-2 text-white transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-gray-800 hover:border-gray-500 cursor-pointer"
             style={{ fontSize }}
         >
             <div className="flex justify-between pb-[0.1vw]">

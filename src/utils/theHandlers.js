@@ -47,8 +47,6 @@ export const addResults = (processes, algorithm, timeQuantum) => {
             console.error("Unknown algorithm selected.");
     }
 
-    console.log(results);
-
 
     // Update the processes with the results from answerArray
     processes = processes.map((process) => {

@@ -16,6 +16,9 @@ const App = () => {
   const showResults = useSelector((state) => state.visualization.showResults);
   const algorithm=useSelector((state)=>state.algorithm.algorithm);
   let metrics=addResults(processList,algorithm,timeQuanta);
+  
+  const [completedProcesses, setCompletedProcesses] = useState([]);
+  const [ganttChartProcesses, setGanttChartProcesses] = useState([]);
 
   function addMetrics(processList,algorithm,timeQuanta){
     metrics=addResults(processList,algorithm,timeQuanta);
@@ -32,12 +35,12 @@ const App = () => {
       </div>
       <div className='flex-grow overflow-y-auto no-scrollbar'>
         {(!(isVisualization) && !(isAll)  && !(showResults)) && <InputScreen processList={processList} setProcessList={setProcessList} timeQuanta={timeQuanta} setTimeQuanta={setTimeQuanta}/>}
-        {(isVisualization)  && <VisualizationScreen processes={metrics.processes}  timeQuantum={timeQuanta} algorithm={algorithm}/>}
+        {(isVisualization)  && <VisualizationScreen processes={metrics.processes}  timeQuantum={timeQuanta} algorithm={algorithm} completedProcesses={completedProcesses} setCompletedProcesses={setCompletedProcesses} ganttChartProcesses={ganttChartProcesses} setGanttChartProcesses={setGanttChartProcesses}/>}
         {(isAll)  &&  <EvaluateAllScreen/>}
-        {(showResults)  && <ResultsScreen/>}
+        {(showResults)  && <ResultsScreen completedProcesses={completedProcesses} ganttChartProcesses={ganttChartProcesses} timeQuanta={timeQuanta} processes={processList}  algorithm={algorithm} metrics={metrics} setCompletedProcesses={setCompletedProcesses} setGanttChartProcesses={setGanttChartProcesses} />}
       </div>
     </div>
   )
 }
 
-export default App
+export default App;

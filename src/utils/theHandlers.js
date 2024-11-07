@@ -8,11 +8,8 @@ import { ShortestJobFirst } from "./Algorithms/shortestJobFirst";
 import { shortestJobFirstPreemptive } from "./Algorithms/shortestJobFirstPreemptive";
 
 
-export const algorithmChangeHandler = (e, dispatch, setAlgorithm, setIsAll) => {
+export const algorithmChangeHandler = (e, dispatch, setAlgorithm) => {
     dispatch(setAlgorithm(e.target.value));
-    if (e.target.value === 20) {
-        dispatch(setIsAll(true));
-    }
 }
 
 export const addResults = (processes, algorithm, timeQuantum) => {
@@ -44,7 +41,7 @@ export const addResults = (processes, algorithm, timeQuantum) => {
             results = roundRobin(processes, timeQuantum);
             break;
         default:
-            console.error("Unknown algorithm selected.");
+            return results;
     }
 
 

@@ -3,7 +3,6 @@ import { algorithmsOptions } from "../utils/theVariables";
 import { useSelector, useDispatch } from "react-redux";
 import { setAlgorithm } from "../context/AlgorithmSlice";
 import { algorithmChangeHandler } from "../utils/theHandlers";
-import { setIsAll } from "../context/VisualizationSlice";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -21,7 +20,7 @@ const Navbar = () => {
           className="bg-gray-800 text-white border border-custom-gold rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-custom-gold hover:bg-gray-900 transition-all duration-300"
           disabled={isVisualizing}
           value={algorithm}
-          onChange={(e)=>{algorithmChangeHandler(e,dispatch,setAlgorithm,setIsAll)}}
+          onChange={(e)=>{algorithmChangeHandler(e,dispatch,setAlgorithm)}}
         >
           {algorithmsOptions.map((option) => (
             <option

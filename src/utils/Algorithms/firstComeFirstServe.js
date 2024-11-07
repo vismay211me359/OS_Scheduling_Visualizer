@@ -36,7 +36,7 @@ export function firstComeFirstServe(processes) {
     const ganttChart = generateGanttChart(answerArray);
 
     return {
-        ganttChart,
+        gyanttChart:ganttChart,
         cpuUtilization,
         throughput,
         answerArray,

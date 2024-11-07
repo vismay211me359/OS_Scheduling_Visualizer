@@ -6,7 +6,7 @@ import TheInfo from './TheInfo';
 import { algorithmHeadings } from '../utils/theVariables';
 import SchedulingResult from './SchedulingResult';
 import { useDispatch } from 'react-redux';
-import { setVisualization,setIsAll,setShowResults } from '../context/VisualizationSlice';
+import { setVisualization,setShowResults } from '../context/VisualizationSlice';
 
 
 const ResultsBodySmall = ({ algorithm, processes, Completed, gantt, metrics, timeQuanta,setCompletedProcesses,setGanttChartProcesses }) => {
@@ -16,7 +16,6 @@ const ResultsBodySmall = ({ algorithm, processes, Completed, gantt, metrics, tim
     setCompletedProcesses([]);
     setGanttChartProcesses([]);
     dispatch(setVisualization(false));
-    dispatch(setIsAll(false));
     dispatch(setShowResults(false));
   }
   return (

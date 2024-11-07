@@ -1,4 +1,3 @@
-import { evaluateAllInfo } from "./Algorithms/evaluateAll";
 import { firstComeFirstServeInfo } from "./Algorithms/firstComeFirstServe";
 import { shortestJobFirstInfo } from "./Algorithms/shortestJobFirst";
 import { shortestJobFirstPreemptiveInfo } from "./Algorithms/shortestJobFirstPreemptive";
@@ -17,7 +16,6 @@ export const algorithmsOptions = [
     { label: 'Priority Scheduling', value: 6 },
     { label: 'Priority (Preemptive)', value: 7 },
     { label: 'Round Robin', value: 8 },
-    { label: 'Evaluate All', value: 20 },
 ]
 
 export const algorithmHeadings = {
@@ -29,7 +27,6 @@ export const algorithmHeadings = {
     6: "Priority Scheduling - Non-Preemptive Task Prioritization",
     7: "Priority Scheduling - Preemptive Task Prioritization",
     8: "Round Robin (RR) Scheduling - Fair Time Allocation",
-    20: "Evaluate All - Comparative Analysis of Scheduling Algorithms"
 };
 
 export const algorithmInputOptions={
@@ -41,7 +38,6 @@ export const algorithmInputOptions={
     6:{burstTime:true,arrivalTime:true,priority:true,timeQuantum:false},
     7:{burstTime:true,arrivalTime:true,priority:true,timeQuantum:false},
     8:{burstTime:true,arrivalTime:true,priority:false,timeQuantum:true},
-    20:{burstTime:true,arrivalTime:true,priority:true,timeQuantum:true}
 }
 
 export const algorithmsInfo={
@@ -53,7 +49,6 @@ export const algorithmsInfo={
     6:prioritySchedulingInfo,
     7:prioritySchedulingPreemptiveInfo,
     8:roundRobinInfo,
-    20:evaluateAllInfo
 }
 
 export const processes = [{

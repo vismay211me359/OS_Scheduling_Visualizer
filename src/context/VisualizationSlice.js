@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     isVisualizing:false,
-    isAll:false,
     showResults:false,
 };
 
@@ -14,9 +13,6 @@ const gridSlice = createSlice({
         setVisualization:(state,action)=>{
             state.isVisualizing=action.payload;
         },
-        setIsAll:(state,action)=>{
-            state.isAll=action.payload;
-        },
         setShowResults:(state,action)=>{
             state.showResults=action.payload;
         }
@@ -26,7 +22,6 @@ const gridSlice = createSlice({
 
 export const {
     setVisualization,
-    setIsAll,
     setShowResults
 } = gridSlice.actions;
 

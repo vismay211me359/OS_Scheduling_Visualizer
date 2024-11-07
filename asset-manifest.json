@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/OS_Scheduling_Visualizer/static/css/main.e8969f24.css",
+    "main.js": "/OS_Scheduling_Visualizer/static/js/main.684c1518.js",
+    "static/js/453.fa5c6067.chunk.js": "/OS_Scheduling_Visualizer/static/js/453.fa5c6067.chunk.js",
+    "index.html": "/OS_Scheduling_Visualizer/index.html",
+    "main.e8969f24.css.map": "/OS_Scheduling_Visualizer/static/css/main.e8969f24.css.map",
+    "main.684c1518.js.map": "/OS_Scheduling_Visualizer/static/js/main.684c1518.js.map",
+    "453.fa5c6067.chunk.js.map": "/OS_Scheduling_Visualizer/static/js/453.fa5c6067.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e8969f24.css",
+    "static/js/main.684c1518.js"
+  ]
+}
